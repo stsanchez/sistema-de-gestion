@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Usuarios</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/devolucion.css">
+</head>
+<body>
+    <img src="/static/img/logo_emer.png" alt="logo_emer" width="100" height="100" class="mx-auto d-block" style="width: 200px; height: auto;">
+    <div class="container">
+        <h1 class="text-center">Buscar Usuarios</h1>
+        <form action="/buscar_usuarios" method="GET">
+            <div class="form-group text-center">
+                <input type="text" id="usuario" name="usuario" class="form-control mx-auto d-block" autocomplete="off">
+                <div id="sugerencias"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar en Base de Datos</button>
+        </form>
+
+        <div class="resultado" id="resultado">
+            {% if dispositivos %}
+            <table class="table tabla-resultados">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Dispositivo</th>
+                        <th>Modelo</th>
+                        <th>Etiqueta</th>
+                        <th>Fecha de entrega</th>
+                        <th>Devuelto</th>
+                        
+                         <th>
+                            
+                           <!-- <form action="/devolver_todo" method="POST">
+                               
+                                <input type="hidden" name="usuario" value="{{ request.args.get('usuario', '') }}">
+
+                                <button type="submit">Devolver Todo</button>
+                            </form> -->
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dispositivo in dispositivos %}
+                    <tr>
+                        <td>{{ dispositivo[0] }}</td>
+                        <td>{{ dispositivo[1] }}</td>
+                        <td>{{ dispositivo[6] }}</td>
+                        <td>{{ dispositivo[2] }}</td>
+                        <td>{{ dispositivo[3] }}</td>
+                        
+                        <td>
+                            {% if not dispositivo[3] %}
+                            <form action="/devolver" method="POST">
+                                <input type="hidden" name="usuario" value="{{ request.args.get('usuario', '') }}">
+                                <input type="hidden" name="dispositivo_id" value="{{ dispositivo[4] }}">
+                                <button type="submit" class="btn btn-danger">Devolver</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <!--<p>No se encontraron dispositivos asignados a este usuario.</p>-->
+            <p></p>
+            {% endif %}
+           
+        </div>
+    </div>
+    <a href="/" class="btn btn-secondary">Volver</a>
+
+
+</body>
+</html>
+
+    <script src="static/js/resultados.js"> </script>
+    
+</body>
+</html>

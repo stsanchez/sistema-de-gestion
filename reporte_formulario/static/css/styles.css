@@ -1,0 +1,114 @@
+h2 {
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="submit"],
+select { /* Aplicar el mismo estilo a los select */
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+select {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    height: 40px; /* Ajusta la altura según tu preferencia */
+}
+
+.seleccionado {
+    background-color: #80e585;
+    cursor: pointer;
+}
+
+/*------------------------------------------------------------------------*/
+.button-container {
+    width: 50%; /* Ancho del contenedor de botones */
+    margin: 0 auto; /* Centrar el contenedor */
+    text-align: center; /* Alinear los botones al centro */
+}
+
+.button {
+    margin-bottom: 5px;
+    width: 200px; /* Ancho de los botones */
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+/* Estilos para el campo "asignado" */
+.campo-asignado {
+    width: 100%; /* Ancho del campo igual al resto de los campos */
+    padding: 8px; /* Espaciado interno */
+    box-sizing: border-box; /* Incluir el padding en el ancho total */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilos para la lista de resultados */
+.resultado {
+    width: 50%; /* Ancho de la lista ajustado */
+    padding: 5px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo */
+    display: none; /* Ocultar la lista inicialmente */
+}
+
+.resultado div {
+    padding: 5px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre los resultados */
+}
+
+.resultado div:hover {
+    background-color: #e9e9e9; /* Cambiar el color de fondo al pasar sobre los resultados */
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+.sugerencia {
+    cursor: pointer;
+    padding: 5px;
+}
+.sugerencia:hover, .sugerencia.focus {
+    background-color: #4CAF50;
+}
+
+.campo-obligatorio::after {
+    content: "*";
+    color: red;
+    margin-left: 5px;
+}

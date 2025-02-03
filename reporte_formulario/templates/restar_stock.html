@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restar Stock</title>
+    <link rel="stylesheet" href="/static/css/restar_stock.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+    <h1>Restar Stock</h1>
+    <form action="/restar_stock" method="POST">
+        <label for="producto">Producto:</label>
+        <select name="producto" id="producto">
+            {% for producto in productos %}
+                <option value="{{ producto[0] }}">{{ producto[0] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" name="cantidad" id="cantidad" required>
+        <br>
+        <button type="submit">Restar</button>
+    </form>
+    <br>
+    <button class="volver" onclick="window.location.href='/stock'">Volver al Inventario</button>
+</body>
+</html>

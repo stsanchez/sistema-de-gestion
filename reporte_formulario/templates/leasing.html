@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leasing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/leasing.css">
+
+</head>
+<body>
+    <h1>Leasing</h1>
+    <h4>Cantidad entregada: {{ total_entregados }}</h4>
+    <h4>Stock restante: {{ restantes }}</h4>
+    <br>
+    <a href="/" class="btn btn-secondary">Volver</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ETIQUETA</th>
+                <th>MODELO</th>
+                <th>USUARIO ASIGNADO</th>
+                <th>FECHA DE ENTREGA</th>
+                <th>TECNICO RESPONSABLE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in datos %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/" class="btn btn-secondary">Volver</a>
+</body>
+</html>

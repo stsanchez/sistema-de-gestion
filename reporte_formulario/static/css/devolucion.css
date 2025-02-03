@@ -1,0 +1,75 @@
+/* Agregado al final del archivo de estilos CSS existente */
+.container {
+    width: 50%; /* Ancho del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    text-align: center; /* Alinear el texto al centro */
+}
+
+.tabla-resultados {
+    width: 100%; /* Ancho de la tabla */
+    border-collapse: collapse; /* Colapsar los bordes de la tabla */
+    margin-top: 20px; /* Margen superior */
+}
+
+.tabla-resultados th, .tabla-resultados td {
+    border: 1px solid #ddd; /* Borde de las celdas */
+    padding: 8px; /* Espaciado interno */
+}
+
+.tabla-resultados th {
+    background-color: #f2f2f2; /* Color de fondo para los encabezados */
+}
+
+.tabla-resultados tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color de fondo para filas pares */
+}
+
+.tabla-resultados tr:hover {
+    background-color: #ddd; /* Cambiar el color de fondo al pasar el cursor sobre las filas */
+}
+
+/* Estilos para el mensaje de "No se encontraron dispositivos asignados a este usuario" */
+.resultado p {
+    margin-top: 20px; /* Margen superior */
+    font-style: italic; /* Fuente en cursiva */
+    color: #666; /* Color del texto */
+}
+
+/* Estilo para el título "Buscar Usuarios" */
+h1 {
+    font-size: 24px; /* Tamaño de la fuente */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Estilo para el campo de entrada de usuario */
+#usuario {
+    margin-bottom: 10px; /* Margen inferior */
+    padding: 8px; /* Espaciado interno */
+    width: calc(100% - 120px); /* Ancho del campo de entrada */
+    border: 1px solid #ddd; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Estilo para el botón "Buscar en Base de Datos" */
+button[type="submit"] {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 8px 16px; /* Espaciado interno */
+    cursor: pointer; /* Cursor de puntero */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Cambio de color de fondo al pasar el cursor */
+}
+
+
+.sugerencia {
+    cursor: pointer;
+    padding: 5px;
+}
+.sugerencia:hover, .sugerencia.focus {
+    background-color: #4CAF50;
+}
