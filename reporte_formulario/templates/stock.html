@@ -1,43 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario</title>
-    
-    <!-- Incluir el archivo CSS externo -->
-    <link rel="stylesheet" href="/static/css/stock.css">
-</head>
-<body>
-    <img src="/static/img/logo_emer.png" alt="logo_emer" width="100" height="100" style="display: block; margin: 0 auto; width: 200px; height: auto;">
-    <div class="container">
-        <h1>Inventario</h1>
-        <div class="button-container">
-            <button onclick="window.location.href='/agregar_stock'">Agregar Stock</button>
-            <button onclick="window.location.href='/restar_stock'">Restar Stock</button> <!-- Nuevo botón para Restar Stock -->
-        </div>
+{% extends "base.html" %}
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Producto 
-                        <!-- Botón de + al lado del encabezado de Producto -->
-                        <button class="add-button" onclick="window.location.href='/agregar_item'">+</button>
-                    </th>
-                    <th>Cantidad</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in inventario %}
-                <tr>
-                    <td>{{ item[0] }}</td>
-                    <td>{{ item[1] }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        
+{% block title %}Inventario{% endblock %}
+
+{% block content %}
+<img src="/static/img/logo_emer.png" alt="logo_emer" width="200" class="mx-auto d-block">
+<div class="container" id="contenedor-devolucion">
+    <h2 class="titulo-formulario">Inventario</h2>
+    <div class="button-container">
+        <button class="btn btn-primary btn-sm" onclick="window.location.href='/agregar_stock'">Agregar Stock</button>
+        <button class="btn btn-info btn-sm" onclick="window.location.href='/restar_stock'">Restar Stock</button>
     </div>
-    <a href="/" class="btn btn-secondary">Volver</a>
-</body>
-</html>
+
+    <table class="table table-resultados table-bordered table-sm text-white">  <thead>
+            <tr>
+                <th>Producto
+                    <button class="add-button" onclick="window.location.href='/agregar_item'">+</button>
+                    
+                </th>
+                
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in inventario %}
+            <tr>
+                <td>{{ item[0] }}</td>
+                <td>{{ item[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+<a href="/" class="btn btn-secondary">Volver</a>
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/stock.css">
+{% endblock %}

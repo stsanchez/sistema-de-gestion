@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leasing</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/leasing.css">
+{% extends "base.html" %}
 
-</head>
-<body>
-    <h1>Leasing</h1>
-    <h4>Cantidad entregada: {{ total_entregados }}</h4>
-    <h4>Stock restante: {{ restantes }}</h4>
+{% block title %}Leasing{% endblock %}
+
+{% block content %}
+<img src="/static/img/logo_emer.png" alt="logo_emer" width="200" class="mx-auto d-block">
+<div class="container" id="contenedor-devolucion">
+    <h2 class="titulo-formulario">Leasing</h2>
+    <h4 class="text-white">Cantidad entregada: {{ total_entregados }}</h4>
+    <h4 class="text-white">Stock restante: {{ restantes }}</h4>
     <br>
-    <a href="/" class="btn btn-secondary">Volver</a>
-    <table>
+
+    <table class="table table-resultados table-bordered text-white">
         <thead>
             <tr>
                 <th>ETIQUETA</th>
@@ -38,5 +34,5 @@
     </table>
     <br>
     <a href="/" class="btn btn-secondary">Volver</a>
-</body>
-</html>
+</div>
+{% endblock %}

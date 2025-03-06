@@ -186,6 +186,35 @@ def devolver_todo():
     return redirect(url_for('buscar_usuarios'))
 
 
+from flask import Flask, request, jsonify
+
+# ... (resto del código)
+
+@app.route('/validar_etiqueta', methods=['POST'])
+def validar_etiqueta():
+    etiqueta = request.form.get('etiqueta', '').upper().replace(" ", "")
+    try:
+        conn = conectar_bd()
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT asignado  -- Selecciona el campo 'asignado'
+            FROM entrega 
+            WHERE etiqueta = %s AND devuelto = FALSE
+        """, (etiqueta,))
+        resultado = cur.fetchone()  # Guarda el resultado de la consulta
+        cur.close()
+        conn.close()
+
+        if resultado:  # Si la etiqueta existe
+            asignado = resultado[0]  # Obtiene el valor del campo 'asignado'
+            return jsonify({'existe': True, 'asignado': asignado})  # Devuelve 'asignado'
+        else:
+            return jsonify({'existe': False})
+
+    except Exception as e:
+        print("Error al validar etiqueta:", e)
+        return jsonify({'error': 'Error al validar la etiqueta'}), 500
+    
 
 @app.route('/generar_reporte', methods=['POST'])
 def generar_reporte():
@@ -214,9 +243,12 @@ def generar_reporte():
         fecha = datetime.strptime(fecha, '%Y-%m-%d').strftime('%Y-%m-%d')
         print(fecha)
 
+
         # Insertar datos en la base de datos
         conn = conectar_bd()
         cur = conn.cursor()
+
+        
 
         cur.execute("""
             INSERT INTO entrega 
