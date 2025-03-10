@@ -505,7 +505,8 @@ def agregar_item_pami():
 @app.route('/agregar_stock_pami', methods=['GET', 'POST'])
 def agregar_stock_pami():
     if request.method == 'POST':
-        producto = request.form['producto'].upper()
+        #producto = request.form['producto'].upper()
+        producto = request.form['producto_pami'].upper()
         cantidad = int(request.form['cantidad'])
 
         conn = conectar_bd()
@@ -577,11 +578,11 @@ def restar_stock_pami():
     conn = conectar_bd()
     cur = conn.cursor()
     cur.execute("SELECT producto FROM inventario_pami")
-    productos = cur.fetchall()
+    productos_pami = cur.fetchall()
     cur.close()
     conn.close()
 
-    return render_template('restar_stock_pami.html', productos=productos)
+    return render_template('restar_stock_pami.html', productos=productos_pami)
 
 
 #---------------------------------------------------------------------------------------
