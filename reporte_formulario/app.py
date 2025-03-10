@@ -36,6 +36,7 @@ usuarios = {
     'tobetko':'Emer1234',
     'jantunez': 'Pami1234',
     'slopez': 'Pami1234',
+    'goliveira':'Pami1234',
 }
 
 
@@ -505,8 +506,7 @@ def agregar_item_pami():
 @app.route('/agregar_stock_pami', methods=['GET', 'POST'])
 def agregar_stock_pami():
     if request.method == 'POST':
-        #producto = request.form['producto'].upper()
-        producto = request.form['producto_pami'].upper()
+        producto = request.form['producto'].upper()  # Cambiado a 'producto'
         cantidad = int(request.form['cantidad'])
 
         conn = conectar_bd()
@@ -544,12 +544,12 @@ def agregar_stock_pami():
 @app.route('/restar_stock_pami', methods=['GET', 'POST'])
 def restar_stock_pami():
     if request.method == 'POST':
-        producto = request.form['producto'].upper()
+        producto = request.form['producto_pami'].upper()  # Corregido el nombre del campo
         cantidad = int(request.form['cantidad'])
 
         conn = conectar_bd()
         cur = conn.cursor()
-        
+
         try:
             cur.execute("SELECT cantidad FROM inventario_pami WHERE producto = %s", (producto,))
             resultado = cur.fetchone()
@@ -572,7 +572,7 @@ def restar_stock_pami():
         finally:
             cur.close()
             conn.close()
-        
+
         return redirect(url_for('stock_pami'))
 
     conn = conectar_bd()
@@ -583,7 +583,6 @@ def restar_stock_pami():
     conn.close()
 
     return render_template('restar_stock_pami.html', productos=productos_pami)
-
 
 #---------------------------------------------------------------------------------------
 @app.route('/leasing')
