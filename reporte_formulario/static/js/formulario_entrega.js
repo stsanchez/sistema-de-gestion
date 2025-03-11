@@ -5,7 +5,7 @@ let indiceSeleccionado = -1;
 // Elementos del DOM
 const dispositivoSelect = document.getElementById('dispositivo');
 const telefonoField = document.getElementById('nro_telefono');
-const leasingCheckboxDiv = document.getElementById('leasing-checkbox');
+//const leasingCheckboxDiv = document.getElementById('leasing-checkbox');
 const modeloTelefonoField = document.getElementById('modelo'); // Cambiado a 'modelo' para no confundir
 const inputAsignado = document.getElementById('asignado');
 const sugerenciasAsignado = document.getElementById('sugerencias');
@@ -20,21 +20,21 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Funcionalidades iniciales (mostrar/ocultar campos)
-dispositivoSelect.addEventListener('change', function () {
+/*dispositivoSelect.addEventListener('change', function () {
     if (this.value === 'Telefono') {
         telefonoField.style.display = 'block';
-        modeloTelefonoField.style.display = 'block'; // Asegúrate de que este es el modelo del teléfono
+        modeloTelefonoField.style.display = 'block';
     } else {
         telefonoField.style.display = 'none';
         modeloTelefonoField.style.display = 'none';
     }
 
     if (this.value === 'Laptop nueva' || this.value === 'Laptop uma') {
-        leasingCheckboxDiv.style.display = 'block'; // Corregido aquí
+        leasingCheckboxDiv.style.display = 'block';
     } else {
-        leasingCheckboxDiv.style.display = 'none'; // Corregido aquí
+        leasingCheckboxDiv.style.display = 'none';
     }
-});
+});*/
 
 // Fecha actual
 const today = new Date().toISOString().split('T')[0];
